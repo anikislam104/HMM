@@ -54,12 +54,12 @@ public class Grid {
     }
 
     void setInitProb(){
-        int total=row*col-obstacles;
+        double total=row*col-obstacles;
         double p=1/total;
         for(int i=0;i<row;i++){
             for (int j=0;j<col;j++){
                 if(box[i][j].hasObstacle==0){
-                    box[i][j].p=1/total;
+                    box[i][j].p=p;
                 }
             }
         }
@@ -67,5 +67,18 @@ public class Grid {
 
     public GridCell[][] getBox() {
         return box;
+    }
+
+    void showBox(){
+        for(int i=0;i<row;i++){
+            for (int j=0;j<col;j++){
+                System.out.print(String.format("%.3f",box[i][j].p)+"   ");
+            }
+            System.out.println();
+        }
+    }
+
+    void setObstacleAtIJ(int i,int j){
+        box[i][j].hasObstacle=1;
     }
 }
