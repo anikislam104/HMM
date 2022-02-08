@@ -80,5 +80,25 @@ public class Grid {
 
     void setObstacleAtIJ(int i,int j){
         box[i][j].hasObstacle=1;
+        obstacles++;
+    }
+
+    void updateProb(int u,int v,int b){
+
+    }
+
+    void getMaxProb(){
+        int r=0,c=0;
+        double max=-1;
+        for(int i=0;i<row;i++){
+            for (int j=0;j<col;j++){
+                if(box[i][j].p>max){
+                    max=box[i][j].p;
+                    r=i;
+                    c=j;
+                }
+            }
+        }
+        System.out.println("( "+r+" , "+c+" )");
     }
 }
