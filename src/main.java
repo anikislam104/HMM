@@ -8,12 +8,12 @@ public class main {
         n=scanner.nextInt();
         k=scanner.nextInt();
         Grid grid=new Grid(m,n);
-        grid.initialSetup();
         for(int i=0;i<k;i++){
             u=scanner.nextInt();
             v=scanner.nextInt();
             grid.setObstacleAtIJ(u,v);
         }
+        grid.initialSetup();
         grid.setInitProb();
         grid.showBox();
 //        System.out.println(grid.getBox()[2][3].numOfCorner);
@@ -27,6 +27,7 @@ public class main {
                 b=scanner.nextInt();
 //                System.out.println(u+" "+v+" "+b);
                 grid.updateProb(u,v,b);
+                grid.showBox();
             }
             else if(command.equals("C")){
                 grid.getMaxProb();
